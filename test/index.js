@@ -39,4 +39,13 @@ describe('Skynet Client Library', function(){
       done();
     });
   });
+  it('A DELETE request', function(done) {
+    skynetHostMock.delete('/role/app').reply(201);
+
+    skynet.deleteRole('app', function(err, res, role) {
+      should.not.exist(err);
+      should.not.exist(role);
+      done();
+    });
+  });
 });
