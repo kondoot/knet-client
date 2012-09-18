@@ -42,3 +42,12 @@ skynet.deleteStrategy(strategyId, callback);
 skynet.decommissionDrone(droneId, callback);
 skynet.stopDrone(droneId, callback);
 ```
+
+Example
+-------
+
+```js
+skynet.listRoles(function(err, res, roles) {
+  // roles is an array of objects
+});
+```
