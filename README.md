@@ -32,6 +32,8 @@ knet.getRole(roleId, callback);
 knet.getStrategy(strategyId, callback);
 knet.getSquadron(strategyId, callback);
 knet.getDrone(droneId, callback);
+knet.getDroneStderrs(droneId, callback);
+knet.getDroneStdouts(droneId, callback);
 
 knet.upsertRole(roleId, data, callback);
 knet.upsertStrategy(strategyId, data, callback);
