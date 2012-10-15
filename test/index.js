@@ -1,7 +1,7 @@
 var should = require('should')
   , nock = require('nock');
 
-var SkynetClient = require('../lib/skynet-client');
+var KNetClient = require('../lib/knet-client');
   
 var testOptions = {
   host: 'http://skynet-test.kondoot.com.au'
@@ -9,18 +9,18 @@ var testOptions = {
 , password: 'woohoo'
 };
 
-var skynetHostMock = nock(testOptions.host).matchHeader('Authorization', 'Basic a29uZG9vdDp3b29ob28=');
+var knetHostMock = nock(testOptions.host).matchHeader('Authorization', 'Basic a29uZG9vdDp3b29ob28=');
 
-var skynet = new SkynetClient(testOptions);
+var knet = new KNetClient(testOptions);
 
-describe('Skynet Client Library', function(){
+describe('KNet Client Library', function(){
   it('A GET request', function(done) {
-    skynetHostMock.get('/roles').reply(200, [
+    knetHostMock.get('/roles').reply(200, [
       { name: 'app', package: 'Small 1GB', dataset: 'smartos'}
     , { name: 'lb', package: 'Small 1GB', dataset: 'smartos'}
     ]);
     
-    skynet.listRoles(function(err, res, roles) {
+    knet.listRoles(function(err, res, roles) {
       should.not.exist(err);
       roles.should.have.length(2);
       roles[0].name.should.equal('app');
@@ -29,20 +29,20 @@ describe('Skynet Client Library', function(){
   });
   it('A POST request', function(done) {
     var data = { name: 'app', package: 'Small 1GB', dataset: 'smartos'};
-    skynetHostMock.post('/role/app', data).reply(200, function(uri, requestBody) {
+    knetHostMock.post('/role/app', data).reply(200, function(uri, requestBody) {
       return requestBody;
     });
     
-    skynet.upsertRole(data.name, data, function(err, res, role) {
+    knet.upsertRole(data.name, data, function(err, res, role) {
       should.not.exist(err);
       role.should.eql(data);
       done();
     });
   });
   it('A DELETE request', function(done) {
-    skynetHostMock.delete('/role/app').reply(201);
+    knetHostMock.delete('/role/app').reply(201);
 
-    skynet.deleteRole('app', function(err, res, role) {
+    knet.deleteRole('app', function(err, res, role) {
       should.not.exist(err);
       should.not.exist(role);
       done();
