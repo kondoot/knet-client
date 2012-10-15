@@ -1,53 +1,53 @@
-Skynet Client
+KNet Client
 =============
 
-A client library to talk with Skynet.
+A client library to talk with KNet.
 
-Initialising the skynet client
+Initialising the KNet client
 ------------------------------
 
 ```js
-var SkynetClient = require('skynet-client');
+var KNetClient = require('knet-client');
 
 var options = {
-  "host": "skynet.kondoot.com"
+  "host": "knet.kondoot.com"
 , "username": "********"
 , "password": "********"
 };
 
-skynet = new SkynetClient(options);
+knet = new KNetClient(options);
 ```
 
 Avaliable commands
 ------------------
 
 ```js
-skynet.listRoles(callback);
-skynet.listStrategies(callback);
-skynet.listSquadrons(callback);
-skynet.listDrones(callback);
-skynet.listMachines(callback);
+knet.listRoles(callback);
+knet.listStrategies(callback);
+knet.listSquadrons(callback);
+knet.listDrones(callback);
+knet.listMachines(callback);
 
-skynet.getRole(roleId, callback);
-skynet.getStrategy(strategyId, callback);
-skynet.getSquadron(strategyId, callback);
-skynet.getDrone(droneId, callback);
+knet.getRole(roleId, callback);
+knet.getStrategy(strategyId, callback);
+knet.getSquadron(strategyId, callback);
+knet.getDrone(droneId, callback);
 
-skynet.upsertRole(roleId, data, callback);
-skynet.upsertStrategy(strategyId, data, callback);
+knet.upsertRole(roleId, data, callback);
+knet.upsertStrategy(strategyId, data, callback);
 
-skynet.deleteRole(roleId, callback);
-skynet.deleteStrategy(strategyId, callback);
+knet.deleteRole(roleId, callback);
+knet.deleteStrategy(strategyId, callback);
 
-skynet.decommissionDrone(droneId, callback);
-skynet.stopDrone(droneId, callback);
+knet.decommissionDrone(droneId, callback);
+knet.stopDrone(droneId, callback);
 ```
 
 Example
 -------
 
 ```js
-skynet.listRoles(function(err, res, roles) {
+knet.listRoles(function(err, res, roles) {
   // roles is an array of objects
 });
 ```
