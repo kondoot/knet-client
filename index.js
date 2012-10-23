@@ -1,1 +1,1 @@
-module.exports = require('./lib/skynet-client');
+module.exports = require('./lib/knet-client');

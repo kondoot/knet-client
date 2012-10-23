@@ -4,12 +4,12 @@ var should = require('should')
 var KNetClient = require('../lib/knet-client');
   
 var testOptions = {
-  host: 'http://skynet-test.kondoot.com.au'
-, username: 'kondoot'
+  host: 'http://knet.local'
+, username: 'knet'
 , password: 'woohoo'
 };
 
-var knetHostMock = nock(testOptions.host).matchHeader('Authorization', 'Basic a29uZG9vdDp3b29ob28=');
+var knetHostMock = nock(testOptions.host).matchHeader('Authorization', 'Basic a25ldDp3b29ob28=');
 
 var knet = new KNetClient(testOptions);
 
