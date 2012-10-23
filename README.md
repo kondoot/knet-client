@@ -10,7 +10,7 @@ Initialising the KNet client
 var KNetClient = require('knet-client');
 
 var options = {
-  "host": "knet.kondoot.com"
+  "host": "knet.local"
 , "username": "********"
 , "password": "********"
 };

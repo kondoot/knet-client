@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "knet-client",
   "description": "KNet client to talk with KNet",
   "scripts": {
